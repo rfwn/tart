@@ -12,7 +12,8 @@ module.exports = class Ready extends Event {
 
 
 		try {
-			require('../../http/api')(bot);
+			require('../../http')(bot);
+			require('../../scripts/autoreload')(bot, './src/commands');
 		}
 		catch (err) {
 			bot.logger.error(err.message);

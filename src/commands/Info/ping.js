@@ -1,10 +1,10 @@
 const { SlashCommandBuilder } = require('@discordjs/builders'),
-	{ Embed } = require('../../helpers/');
+	{ Embed } = require('../../utils/');
 module.exports = {
 	// Due to slash commands, We store these in data
 	data: new SlashCommandBuilder()
 		.setName('ping')
-		.setDefaultPermission(false)
+		.setDefaultPermission(true)
 		.setDescription('Shows the bot ping.'),
 	dir: __dirname,
 	async execute(bot, interaction) {
@@ -16,7 +16,6 @@ module.exports = {
 		const embed = new Embed()
 			.addField('🏓 Ping', `> \`${messageTimestamp - interaction.createdTimestamp}ms\``, true)
 			.addField('⌛ API Latency', `> \`${Math.round(bot.ws.ping)}ms\``, true)
-			.addField('🗃 DB Ping', `> \`${Math.round(await bot.mongoose.ping())}ms\``, true)
 			.setTimestamp();
 		await interaction.reply({ embeds: [embed] });
 	},

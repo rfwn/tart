@@ -17,6 +17,9 @@ module.exports = class InteractionCreate extends Event {
 		}
 		catch (error) {
 			bot.logger.error(`Command ${interaction.commandName} has an error: ${error.message}`);
+			if (bot.config.debug) {
+				console.log(error);
+			}
 			await interaction.reply({ content: 'This command has an error, please try again. (If you are consistently observing this error please contact support)', ephemeral: true });
 		}
 	}

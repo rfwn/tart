@@ -1,10 +1,10 @@
 // This file
 const { Client, Collection } = require('discord.js');
 
-module.exports = class Cortana extends Client {
+module.exports = class Tart extends Client {
 	constructor(options) {
 		super(options);
-		this.logger = require('../helpers/Logger');
+		this.logger = require('../utils/Logger');
 
 		this.commands = new Collection();
 

@@ -1,16 +1,38 @@
 // Main File for the bot
 // Dependencies
 const Client = require('./base/Client'),
+	{ Intents } = require('discord.js'),
 	fs = require('fs'),
 	path = require('path');
 
-require('./structures');
+const bot = new Client({
+	allowedMentions: { parse: ['users'] },
+	intents: [
+		// May need these?
+		Intents.FLAGS.GUILDS,
+		Intents.FLAGS.GUILD_MEMBERS,
+		Intents.FLAGS.GUILD_BANS,
+		Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
+		Intents.FLAGS.GUILD_INTEGRATIONS,
+		Intents.FLAGS.GUILD_WEBHOOKS,
+		Intents.FLAGS.GUILD_INVITES,
+		Intents.FLAGS.GUILD_VOICE_STATES,
+		Intents.FLAGS.GUILD_PRESENCES,
+		Intents.FLAGS.GUILD_MESSAGES,
+		Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+	],
+	presence: {
+		status: 'online',
+		activities: [{
+			// Never gonna forget you
+			name: 'everybody gangsta untill I change this',
+			type: 'LISTENING',
+		}],
+	},
+});
 
-const bot = new Client();
-
-// Connect to database and register slash commands
+// Register slash commands
 (async () => {
-	await bot.mongoose.init(bot);
 	await bot.registerCommands(bot);
 })();
 

@@ -1,5 +1,5 @@
-const chalk = import('chalk');
 const moment = require('moment'),
+	chalk = require('chalk'),
 	log = require('simple-node-logger').createRollingFileLogger({
 		logDirectory: './logs',
 		fileNamePattern: '<DATE>.log',
