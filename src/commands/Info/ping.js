@@ -16,6 +16,7 @@ module.exports = {
 		const embed = new Embed()
 			.addField('🏓 Ping', `> \`${messageTimestamp - interaction.createdTimestamp}ms\``, true)
 			.addField('⌛ API Latency', `> \`${Math.round(bot.ws.ping)}ms\``, true)
+			.addField('📂 Database', `> \`${Math.round(await bot.database.ping())}ms\``, true)
 			.setTimestamp();
 		await interaction.reply({ embeds: [embed] });
 	},

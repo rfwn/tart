@@ -31,9 +31,10 @@ const bot = new Client({
 	},
 });
 
-// Register slash commands
+// Register slash commands and database
 (async () => {
 	await bot.registerCommands(bot);
+	await bot.database.init(bot);
 })();
 
 // Load command files

@@ -8,6 +8,8 @@ module.exports = class Tart extends Client {
 
 		this.commands = new Collection();
 
+		this.database = require('../database/init');
+
 		this.config = require('../config.js');
 
 		this.registerCommands = require('../scripts/register-slash-commands');

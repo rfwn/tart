@@ -27,6 +27,7 @@ TOKEN=<Your Bot Token>
 CLIENT_ID=<Bot Account Id>
 OWNER_ID=<Your Id>
 SERVER_ID=<Dev Server Id>
+MONGO=<MongoDB URl>
 ```
 
 Then create a folder named `logs` in the main directory and then, run the bot with this command.

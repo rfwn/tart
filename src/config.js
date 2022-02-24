@@ -5,5 +5,6 @@ module.exports = {
 	clientId: process.env.CLIENT_ID,
 	ownerId: process.env.OWNER_ID,
 	serverId: process.env.SERVER_ID,
+	MongoDBURl: process.env.MONGO,
 	debug: true,
 };
